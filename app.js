@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ui.momentumBar.style.width = `${val}%`;
         ui.pressureVal.innerText = `${val}% High Pressure`;
     };
+    updateMomentum(); // Call immediately on load
     setInterval(updateMomentum, 3000);
 
     window.toggleConfig = () => {
