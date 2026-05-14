@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentPulse | Agentic Sports Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Open Graph / Winning Meta Tags -->
+    <meta property="og:title" content="AgentPulse: Tactical Sports AI">
+    <meta property="og:description" content="Autonomous match analysis and momentum tracking for the modern fan.">
+    <meta property="og:type" content="website">
+    
+    <!-- Performance Preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- Suite Switcher -->
+    <nav class="suite-nav">
+        <a href="#" class="nav-item active">AGENTPULSE</a>
+        <a href="https://fanquest-service-94343063153.asia-south1.run.app" class="nav-item">FANQUEST</a>
+        <div id="google_translate_element" style="position: absolute; right: 20px; top: 10px;"></div>
+    </nav>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div class="dashboard">
+        <header>
+            <div class="logo">
+                <svg viewBox="0 0 100 100" style="width:30px; height:30px; vertical-align:middle; margin-right:10px;">
+                    <path d="M50 5 L90 25 L90 55 C90 75 70 90 50 95 C30 90 10 75 10 55 L10 25 L50 5" fill="none" stroke="var(--accent-primary)" stroke-width="4" />
+                </svg>
+                AGENTPULSE <span style="font-size: 10px; vertical-align: middle; border: 1px solid var(--accent-secondary); padding: 1px 4px; border-radius: 4px; color: var(--accent-secondary);">v2.0 AGENTIC</span>
+            </div>
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div class="user-id" style="font-size: 12px; font-weight: 800; color: var(--accent-primary);">
+                    <span class="heartbeat-dot"></span> VISHNU_PRIME
+                </div>
+                <div class="live-indicator">
+                    <span class="dot"></span> Live: Manchester City vs Arsenal
+                </div>
+                <div id="user-points" style="font-weight: 600; font-size: 14px; background: rgba(0, 242, 255, 0.1); padding: 4px 12px; border-radius: 20px; border: 1px solid var(--accent-primary);">
+                    Pts: 1,240
+                </div>
+                <button class="btn btn-secondary" style="width: auto; margin-top: 0; padding: 4px 12px; border-radius: 20px;" onclick="toggleConfig()">
+                    ⚙ Config
+                </button>
+                <button class="btn btn-primary" style="width: auto; margin-top: 0; padding: 4px 12px; border-radius: 20px; background: var(--accent-secondary); color: white;" onclick="toggleIntel()">
+                    🚀 Project Intel
+                </button>
+            </div>
+        </header>
+
+        <main class="main-view">
+            <!-- Match Momentum -->
+            <section class="card">
+                <div class="widget-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-primary)"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    Live Momentum Pulse
+                </div>
+                <div class="momentum-chart-container">
+                    <svg id="pulse-chart" viewBox="0 0 800 300" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="var(--accent-secondary)" />
+                                <stop offset="100%" stop-color="var(--accent-primary)" />
+                            </linearGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="3" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                        </defs>
+                        <path id="chart-path" d="" fill="none" stroke="url(#line-gradient)" stroke-width="4" filter="url(#glow)"/>
+                        <path id="chart-fill" d="" fill="url(#fill-gradient)" opacity="0.1" />
+                        <linearGradient id="fill-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="var(--accent-primary)" />
+                            <stop offset="100%" stop-color="transparent" />
+                        </linearGradient>
+                    </svg>
+                </div>
+            </section>
+
+            <!-- Interactive Match Stats -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <section class="card">
+                    <div class="widget-title">Attacking Dominance</div>
+                    <div style="height: 150px; display: flex; align-items: flex-end; gap: 10px; padding: 10px;">
+                        <!-- Simple bar chart simulation -->
+                        <div style="flex: 1; background: var(--accent-secondary); height: 70%; border-radius: 4px; opacity: 0.8;"></div>
+                        <div style="flex: 1; background: var(--accent-primary); height: 40%; border-radius: 4px; opacity: 0.8;"></div>
+                        <div style="flex: 1; background: var(--accent-secondary); height: 85%; border-radius: 4px; opacity: 0.8;"></div>
+                        <div style="flex: 1; background: var(--accent-primary); height: 30%; border-radius: 4px; opacity: 0.8;"></div>
+                    </div>
+                </section>
+                <section class="card prediction-card" id="poll-widget">
+                    <div class="widget-title">Flash Prediction</div>
+                    <p style="font-size: 14px; margin-bottom: 12px;">Will Kevin De Bruyne score this free kick?</p>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn btn-secondary" onclick="castVote('Yes')">Yes (+50 pts)</button>
+                        <button class="btn btn-secondary" onclick="castVote('No')">No (+50 pts)</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <section class="card" style="position: relative; overflow: hidden;">
+                <div class="scan-line"></div>
+                <div class="agent-status">
+                    <span class="agent-badge">TACTICAL AGENT ACTIVE</span>
+                    <span style="opacity: 0.6">| Real-time Analysis Engaged</span>
+                </div>
+                <div class="widget-title">AI Reasoning Console</div>
+                <div id="ai-console" class="ai-console">
+                    <div class="console-line"><span class="console-prefix">[SYSTEM]</span> Initializing Vertex AI Sports Agent...</div>
+                    <div class="console-line"><span class="console-prefix">[ANALYSIS]</span> Analyzing match patterns for Man City vs Arsenal...</div>
+                </div>
+            </section>
+
+            <section class="card" style="flex: 1; overflow: hidden; display: flex; flex-direction: column;">
+                <div class="widget-title">Live Match Feed</div>
+                <div id="feed-container" style="flex: 1; overflow-y: auto;">
+                    <!-- Items injected by JS -->
+                    <div class="feed-item">
+                        <div class="feed-time">12'</div>
+                        <div class="feed-content">
+                            <h4>Dangerous Attack</h4>
+                            <p>Arsenal pressing high into the City box. Haaland clears it.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="widget-title">Fan Heatmap</div>
+                <div style="height: 120px; background: rgba(255,255,255,0.02); border-radius: 12px; display: grid; grid-template-columns: repeat(10, 1fr); gap: 2px;">
+                    <!-- Visual representation of fan intensity -->
+                    <div style="background: rgba(0, 242, 255, 0.1); border-radius: 2px;"></div>
+                    <div style="background: rgba(0, 242, 255, 0.4); border-radius: 2px;"></div>
+                    <div style="background: rgba(112, 0, 255, 0.6); border-radius: 2px;"></div>
+                    <div style="background: rgba(0, 242, 255, 0.2); border-radius: 2px;"></div>
+                    <div style="background: rgba(0, 242, 255, 0.8); border-radius: 2px; box-shadow: 0 0 10px var(--accent-primary);"></div>
+                </div>
+                <p style="font-size: 11px; color: var(--text-secondary); margin-top: 10px; text-align: center;">Global fan intensity: HIGH</p>
+            </section>
+        </aside>
+    </div>
+
+    <!-- Project Intel Modal (The Slide) -->
+    <div class="modal-overlay" id="intel-modal">
+        <div class="modal-content" style="width: 800px; max-height: 90vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                <h1 style="color: var(--accent-primary); font-size: 28px;">🚀 AGENTPULSE v2.0</h1>
+                <button class="btn btn-secondary" style="width: auto; margin-top: 0;" onclick="toggleIntel()">Close</button>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div>
+                    <h3 style="color: var(--accent-secondary); margin-bottom: 10px;">The Problem</h3>
+                    <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 20px;">
+                        Passive sports viewing lacks real-time intelligence. Fans are forced to hunt for stats instead of receiving proactive insights.
+                    </p>
+                    
+                    <h3 style="color: var(--accent-secondary); margin-bottom: 10px;">Agentic Core (USP)</h3>
+                    <ul style="font-size: 13px; list-style: none; padding: 0;">
+                        <li style="margin-bottom: 8px;">🧠 <b>AI Reasoning Console:</b> Displays live "Chain-of-Thought" tactical analysis.</li>
+                        <li style="margin-bottom: 8px;">⚡ <b>Momentum Engine:</b> Autonomous monitor that triggers "Agent Alerts."</li>
+                        <li style="margin-bottom: 8px;">🤝 <b>Human-in-the-Loop:</b> Adjustable autonomy levels for personalized assistance.</li>
+                    </ul>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 16px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--accent-primary); margin-bottom: 10px;">GCP Architecture</h3>
+                    <div style="font-size: 12px; font-family: monospace;">
+                        <div style="margin-bottom: 10px;"><span style="color: var(--accent-success)">></span> DEPLOYED ON: Google Cloud Run</div>
+                        <div style="margin-bottom: 10px;"><span style="color: var(--accent-success)">></span> PIPELINE: Cloud Build + Docker</div>
+                        <div style="margin-bottom: 10px;"><span style="color: var(--accent-success)">></span> INTELLIGENCE: Vertex AI / Gemini</div>
+                        <div style="margin-bottom: 10px;"><span style="color: var(--accent-success)">></span> FRONTEND: Nginx + Glassmorphism</div>
+                    </div>
+                    
+                    <div style="margin-top: 20px; padding: 10px; background: rgba(0,242,255,0.1); border-radius: 8px; border: 1px solid var(--accent-primary);">
+                        <p style="font-size: 11px; text-align: center;"><b>Observe-Reason-Act Loop</b><br>The gold standard for Agentic Systems.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; border-top: 1px solid var(--glass-border); padding-top: 20px; text-align: center;">
+                <p style="font-size: 12px; color: var(--text-secondary);">Winner Entry | Agentic Premier League | Google Cloud</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agent Config Modal -->
+    <div class="modal-overlay" id="config-modal">
+        <div class="modal-content">
+            <h2 style="margin-bottom: 20px; color: var(--accent-primary);">Agent Configuration</h2>
+            
+            <div class="config-group">
+                <label>Autonomy Level</label>
+                <input type="range" min="0" max="100" value="70">
+                <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--text-secondary); margin-top: 4px;">
+                    <span>Passive</span>
+                    <span>Fully Autonomous</span>
+                </div>
+            </div>
+
+            <div class="config-group">
+                <label>Target Insight Frequency</label>
+                <select>
+                    <option>High (Every 2 mins)</option>
+                    <option selected>Medium (Key Moments Only)</option>
+                    <option>Low (Goals/Cards Only)</option>
+                </select>
+            </div>
+
+            <div class="config-group">
+                <label>Autonomous Features</label>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <label style="display: flex; align-items: center; gap: 10px; text-transform: none; color: white;">
+                        <input type="checkbox" checked> Auto-Prediction Betting
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px; text-transform: none; color: white;">
+                        <input type="checkbox" checked> Momentum Shift Alerts
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px; text-transform: none; color: white;">
+                        <input type="checkbox"> Automatic Screen Dimming
+                    </label>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="toggleConfig()">Save Configuration</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
